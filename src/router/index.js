@@ -64,7 +64,7 @@ export const asyncRouterMap = [
       path: 'userindex',
       component: _import('usermanager/index'),
       name: 'usermanager',
-      meta: { title: '用户管理', icon: 'dashboard', noCache: true, roles: ['admin', 'editor', 'user'] }
+      meta: { title: '用户管理', icon: 'peoples', noCache: true, roles: ['admin', 'editor', 'user'] }
     }]
   },
   {
@@ -80,21 +80,21 @@ export const asyncRouterMap = [
         path: 'roleindex',
         component: _import('rolemanager/index'),
         name: 'rolemanager',
-        meta: { title: '角色管理', icon: 'dashboard', noCache: true, roles: ['admin', 'editor', 'user'] }
+        meta: { title: '角色管理', icon: 'theme', noCache: true, roles: ['admin', 'editor', 'user'] }
       },
       {
         hidden: true,
         path: 'roleindex/roleusermanager',
         component: _import('rolemanager/roleusermanager'),
         name: 'roleusermanager',
-        meta: { title: '角色用户管理', icon: 'dashboard', noCache: true, roles: ['admin', 'editor', 'user'] }
+        meta: { title: '角色用户管理', icon: 'people', noCache: true, roles: ['admin', 'editor', 'user'] }
       },
       {
         hidden: true,
         path: 'roleindex/roleappmanager',
         component: _import('rolemanager/roleappmanager'),
         name: 'roleappmanager',
-        meta: { title: '角色应用管理', icon: 'dashboard', noCache: true, roles: ['admin', 'editor', 'user'] }
+        meta: { title: '角色应用管理', icon: 'example', noCache: true, roles: ['admin', 'editor', 'user'] }
       }
     ]
   },
@@ -110,7 +110,7 @@ export const asyncRouterMap = [
       path: 'appindex',
       component: _import('appmanager/index'),
       name: 'appmanager',
-      meta: { title: '应用管理', icon: 'dashboard', noCache: true, roles: ['admin', 'editor', 'user'] }
+      meta: { title: '应用管理', icon: 'example', noCache: true, roles: ['admin', 'editor', 'user'] }
     }]
   },
   { path: '*', redirect: '/404', hidden: true }

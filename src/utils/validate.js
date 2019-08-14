@@ -40,3 +40,12 @@ export function validateEmail(email) {
   return re.test(email)
 }
 
+/**
+ * validate phone
+ * @param email
+ * @returns {boolean}
+ */
+export function validatePhone(phone) {
+  const re = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-3]{1})|(15[4-9]{1})|(18[0-9]{1})|(199))+\d{8})$/
+  return re.test(phone)
+}

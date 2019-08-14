@@ -47,3 +47,47 @@ export function fetchBuildHistory(query) {
     params: query
   })
 }
+export function getUserList(url,query) {
+  return request({
+    url: url,
+    method: 'get',
+    params: query
+  })
+}
+
+export function changeState(url,data) {
+  return request({
+    url: url,
+    method: 'post',
+    data
+  })
+}
+export function delUser(url,data) {
+  return request({
+    url: url,
+    method: 'post',
+    data
+  })
+}
+export function addUser(data) {
+  return request({
+    url: '/user/add',
+    method: 'post',
+    data
+  })
+}
+export function editUser(data) {
+  return request({
+    url: '/user/edit',
+    method: 'post',
+    data
+  })
+}
+export function changePwd(data) {
+  return request({
+    url: '/user/changepwd',
+    method: 'post',
+    data
+  })
+}
+

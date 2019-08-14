@@ -221,7 +221,7 @@ code {
   cursor: pointer;
 }
 .el-dialog{
-  width: 65% !important;
+  /*width: 35% !important;*/
   margin-top: 5vh !important;
 }
 textarea{
@@ -348,4 +348,18 @@ textarea{
   height: 39px;
   line-height: 39px;
   text-align: center;
+}
+.font12{
+  font-size: 12px;
+}
+.required_label{
+  position: relative;
+}
+.required_label:before{
+  content: '*';
+  color: red;
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  font-size: 14px;
 }
