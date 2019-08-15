@@ -104,7 +104,7 @@
               align="center"
               width="">
               <template slot-scope="scope">
-                <i class="el-icon-edit" @click="editUser(scope.row)"></i>
+                <i class="el-icon-edit" @click="editUser(scope.row)" style="color: #409EFF"></i>
                 <i v-if="scope.row.state.toLowerCase() == 'started'"><img class="table_icon" :src="stopIconSrc" alt=""
                                                                           @click="changeUserState(scope.row)"/></i>
                 <i v-if="scope.row.state.toLowerCase() != 'started'"><img class="table_icon" :src="playIconSrc" alt=""
@@ -226,8 +226,8 @@
 <script>
   import {mapGetters} from 'vuex'
   import addIcon from '@/assets/add.png/'
-  import stopIcon from '@/assets/stop.png/'
-  import playIcon from '@/assets/play.png/'
+  import stopIcon from '@/assets/stop.svg/'
+  import playIcon from '@/assets/play.svg/'
   import PanThumb from '@/components/PanThumb'
   import GithubCorner from '@/components/GithubCorner'
   import {MessageBox} from 'element-ui'
@@ -235,7 +235,7 @@
   import {validatePhone} from '@/utils/validate'
 
   export default {
-    name: 'appindex',
+    name: 'userindex',
     components: {},
     data() {
       const validateOldPassword = (rule, value, callback) => {
@@ -481,6 +481,10 @@
           })
           delUser(url, delData).then(response => {
             if (response.data.code.toString().charAt(0) == 2) {
+              this.$message({
+                type: 'success',
+                message: '删除成功~'
+              })
               this.getList()
             }
           }).catch(err_ => {

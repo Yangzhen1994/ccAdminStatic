@@ -1,5 +1,5 @@
 import { loginByUsername, logout, getUserInfo } from '@/api/login'
-import { getToken, setToken, removeToken, getAppData, setAppData, getColonyNodeData, setColonyNodeData, getServiceData, setServiceData, getConfigData, setConfigData, getEn, setEn, getSystemConfig, setSystemConfig } from '@/utils/auth'
+import { getToken, setToken, removeToken, getAppData, setAppData, getColonyNodeData, setColonyNodeData, getServiceData, setServiceData, getConfigData, setConfigData, getEn, setEn, getSystemConfig, setSystemConfig, getRoleData, setRoleData } from '@/utils/auth'
 
 const user = {
   state: {
@@ -18,6 +18,7 @@ const user = {
     appdata: getAppData(),
     servicedata: getServiceData(),
     configdata: getConfigData(),
+    roledata: getRoleData(),
     colonyNodeData: getColonyNodeData(),
     en: getEn() || '',
     systemconfig: getSystemConfig() || null,
@@ -34,6 +35,9 @@ const user = {
     },
     SET_COLONY_NODE_DATA: (state, data) => {
       state.colonyNodeData = data
+    },
+    SET_ROLE_DATA: (state, data) => {
+      state.roledata = data
     },
     SET_DATA: (state, data) => {
       state.appdata = data
@@ -90,6 +94,11 @@ const user = {
     saveEn({ commit }, data) {
       setEn(data)
       commit('SET_EN', data)
+    },
+    // 存储角色数据
+    saveRoleData({ commit }, data) {
+      setRoleData(data)
+      commit('SET_ROLE_DATA', data)
     },
     // 储存节点
     saveColonyNodeData({ commit }, data) {

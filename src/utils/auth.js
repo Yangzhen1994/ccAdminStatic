@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 
 const TokenKey = 'Admin-Token'
 const AppKey = 'appkey'
+const RoleKey = 'rolekey'
 const ServiceKey = 'servicekey'
 const ConfigKey = 'configkey'
 const colonyNodeKey = 'colonynodekey'
@@ -29,6 +30,17 @@ export function setAppData(data) {
     return
   }
   return Cookies.set(AppKey, JSON.stringify(data))
+}
+
+export function getRoleData() {
+  return Cookies.get(RoleKey) ? JSON.parse(Cookies.get(RoleKey)) : Cookies.get(RoleKey)
+}
+
+export function setRoleData(data) {
+  if (!data) {
+    return
+  }
+  return Cookies.set(RoleKey, JSON.stringify(data))
 }
 
 export function getServiceData() {

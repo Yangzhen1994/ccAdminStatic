@@ -54,7 +54,20 @@ export function getUserList(url,query) {
     params: query
   })
 }
-
+export function getAppList(url,query) {
+  return request({
+    url: url,
+    method: 'get',
+    params: query
+  })
+}
+export function getRoleList(url,query) {
+  return request({
+    url: url,
+    method: 'get',
+    params: query
+  })
+}
 export function changeState(url,data) {
   return request({
     url: url,
@@ -91,3 +104,67 @@ export function changePwd(data) {
   })
 }
 
+export function delApp(url,data) {
+  return request({
+    url: url,
+    method: 'post',
+    data
+  })
+}
+export function addApp(data) {
+  return request({
+    url: '/app/add',
+    method: 'post',
+    data
+  })
+}
+export function editApp(data) {
+  return request({
+    url: '/app/edit',
+    method: 'post',
+    data
+  })
+}
+export function delRole(url,data) {
+  return request({
+    url: url,
+    method: 'post',
+    data
+  })
+}
+export function addRole(data) {
+  return request({
+    url: '/role/add',
+    method: 'post',
+    data
+  })
+}
+export function editRole(data) {
+  return request({
+    url: '/role/edit',
+    method: 'post',
+    data
+  })
+}
+
+export function getRoleUserList(url,query) {
+  return request({
+    url: url,
+    method: 'get',
+    params: query
+  })
+}
+export function delRoleUser(url,data) {
+  return request({
+    url: url,
+    method: 'post',
+    data
+  })
+}
+export function addRoleUser(url,data) {
+  return request({
+    url: url,
+    method: 'post',
+    data
+  })
+}

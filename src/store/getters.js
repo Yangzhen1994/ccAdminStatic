@@ -21,6 +21,7 @@ const getters = {
   en: state => state.user.en,
   systemconfig: state => state.user.systemconfig,
   scalep: state => state.user.scalep,
-  scales: state => state.user.scales
+  scales: state => state.user.scales,
+  roledata: state => state.user.roledata
 }
 export default getters
