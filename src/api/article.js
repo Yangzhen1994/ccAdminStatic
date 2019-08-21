@@ -168,3 +168,25 @@ export function addRoleUser(url,data) {
     data
   })
 }
+
+export function getRoleAppList(url,query) {
+  return request({
+    url: url,
+    method: 'get',
+    params: query
+  })
+}
+export function delRoleApp(url,data) {
+  return request({
+    url: url,
+    method: 'post',
+    data
+  })
+}
+export function addRoleApp(url,data) {
+  return request({
+    url: url,
+    method: 'post',
+    data
+  })
+}

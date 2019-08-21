@@ -375,7 +375,9 @@
         const url = '/user/list'
         const searchData = {
           owner: this.userid,
-          search: ''
+          search: '',
+          apart: this.apartValue == '全部' ? 'all' : this.apartValue,
+          role: this.roleValue == '全部' ? 'all' : this.roleValue
         }
         this._searchUser(url, searchData)
       },
@@ -485,6 +487,7 @@
                 type: 'success',
                 message: '删除成功~'
               })
+              this.keyword = ''
               this.getList()
             }
           }).catch(err_ => {

@@ -19,6 +19,11 @@ Mock.mock(/\/user\.*/, 'put', loginAPI.changePwd)
 Mock.mock(/\/role\/.*\/user\/list\.*/, 'get', articleAPI.getRoleUserList)
 Mock.mock(/\/role\/.*\/user\/delete\.*/, 'post', articleAPI.delRoleUser)
 Mock.mock(/\/role\/.*\/user\/add\.*/, 'post', articleAPI.addRoleUser)
+// 角色下应用
+// 角色下用户
+Mock.mock(/\/role\/.*\/app\/list\.*/, 'get', articleAPI.getRoleAppList)
+Mock.mock(/\/role\/.*\/app\/delete\.*/, 'post', articleAPI.delRoleApp)
+Mock.mock(/\/role\/.*\/app\/add\.*/, 'post', articleAPI.addRoleApp)
 // 用户列表
 Mock.mock(/\/user\/list\.*/, 'get', articleAPI.getUserList)
 Mock.mock(/\/user\/state\.*/, 'post', articleAPI.changeUserState)

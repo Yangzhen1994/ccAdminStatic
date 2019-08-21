@@ -1,7 +1,7 @@
 <template>
   <scroll-bar>
     <router-link to="/">
-      <div ref="logoParent" style="background-color:rgb(55, 69, 134);height: 60px;box-sizing: border-box;padding-top: 20px;box-sizing: border-box;padding-left: 20px;border-bottom:1px solid #5a6598">
+      <div ref="logoParent" style="background-color:rgb(0, 21, 41);height: 60px;box-sizing: border-box;padding-top: 20px;box-sizing: border-box;padding-left: 20px;">
         <img v-if="!sidebar.opened" :src="imgURL" alt style="opacity:0.9;cursor:pointer;">
         <div v-if="sidebar.opened" style="opacity:0.9;cursor:pointer;font-size: 15px;color: #fff">
           智慧城市服务平台后台管理系统
@@ -14,7 +14,7 @@
       :show-timeout="200"
       :default-active="path"
       :collapse="isCollapse"
-      background-color="#374586"
+      background-color="#304156"
       text-color="#bfcbd9"
       active-text-color="#fff"
       @open="handleOPen"

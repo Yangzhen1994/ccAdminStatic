@@ -289,6 +289,7 @@
                 type: 'success',
                 message: '删除成功~'
               })
+              this.keyword = ''
               this.getList()
             }
           }).catch(err_ => {

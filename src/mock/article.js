@@ -4,6 +4,7 @@ import {param2Obj} from '@/utils'
 const List = []
 const userList = []
 const roleUserList = []
+const roleAppList = []
 const appList = []
 const roleList = []
 const exampleArr = []
@@ -19,6 +20,18 @@ for (let i = 0; i < count; i++) {
     relativeapp: '@integer(1,100)'
   }))
   appList.push(Mock.mock({
+    id: '@guid',
+    'apptype|1': ['专题应用', '基础平台', '数据中枢-数据服务', '数据中枢-数据治理', '数据中枢-资源目录', '数据中枢-数据湖', '数据中枢-数据通', '数据中枢-基础支撑与服务'],
+    'appname|1': ['智慧城管', '城市运行管理平台', '数据共享服务平台', '数据质量管理平台', '资源目录管理系统'],
+    appdesc: '@cparagraph(1,1)',
+    'state|1': [true, false],
+    indexurl: '@url',
+    interface: '@ip',
+    index: '@integer(0,100)',
+    icon: '@image',
+    iconname: 'test.png',
+  }))
+  roleAppList.push(Mock.mock({
     id: '@guid',
     'apptype|1': ['专题应用', '基础平台', '数据中枢-数据服务', '数据中枢-数据治理', '数据中枢-资源目录', '数据中枢-数据湖', '数据中枢-数据通', '数据中枢-基础支撑与服务'],
     'appname|1': ['智慧城管', '城市运行管理平台', '数据共享服务平台', '数据质量管理平台', '资源目录管理系统'],
@@ -302,6 +315,56 @@ export default {
       roleUserList.forEach((item, index) => {
         if (item.id == itemdel) {
           roleUserList.splice(index, 1)
+        }
+      })
+    })
+    return {code: 200}
+  },
+  getRoleAppList: config => {
+    console.log(config.url)
+    let {importance, type, title, page = 1, size = 10, sort, apart, role,search} = param2Obj(config.url)
+    let mockList = roleAppList.filter(item => {
+      if (importance && item.importance !== +importance) return false
+      if (type && item.type !== type) return false
+      if (title && item.title.indexOf(title) < 0) return false
+      if (search && item.appname.indexOf(search) < 0) return false
+      return true
+    })
+
+    if (sort === '-id') {
+      mockList = mockList.reverse()
+    }
+
+    const pageList = mockList.filter((item, index) => index < size * page && index >= size * (page - 1))
+    console.log(page, size)
+    return {
+      total: mockList.length,
+      items: pageList
+    }
+  },
+  addRoleApp: config => {
+    const newRoleApp = JSON.parse(config.body);
+    var role =  newRoleApp.belongRole
+    var apps =  newRoleApp.apps
+    console.log(apps)
+    apps.forEach((item, index) => {
+      roleAppList.push(Mock.mock({
+        appname : item.name,
+        apptype: item.type,
+        belongRole: role,
+        id: '@guid'
+      }))
+    })
+    return {code: 200}
+  },
+  delRoleApp: config => {
+    console.log(typeof config.body)
+    const delarr = eval(config.body);
+    console.log(delarr)
+    delarr.forEach((itemdel, indexdel) => {
+      roleAppList.forEach((item, index) => {
+        if (item.id == itemdel) {
+          roleAppList.splice(index, 1)
         }
       })
     })
