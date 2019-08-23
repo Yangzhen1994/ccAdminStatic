@@ -55,8 +55,8 @@
               width="100">
               <template slot-scope="scope">
                 <i class="el-icon-edit" @click="editRole(scope.row)" style="color: #409EFF"></i>
-                <i><img class="table_icon" :src="appIconSrc" alt="" @click="goToRoleApp(scope.row)"/></i>
-                <i><img class="table_icon" :src="userIconSrc" alt="" @click="goToRoleUser(scope.row)"/></i>
+                <i><img class="table_icon" title="应用" :src="appIconSrc" alt="" @click="goToRoleApp(scope.row)"/></i>
+                <i><img class="table_icon" title="用户" :src="userIconSrc" alt="" @click="goToRoleUser(scope.row)"/></i>
                 <i class="el-icon-delete" @click="delRole(scope.row)" style="color: #F56C6C"></i>
               </template>
             </el-table-column>

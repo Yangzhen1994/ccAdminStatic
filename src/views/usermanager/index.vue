@@ -105,9 +105,9 @@
               width="">
               <template slot-scope="scope">
                 <i class="el-icon-edit" @click="editUser(scope.row)" style="color: #409EFF"></i>
-                <i v-if="scope.row.state.toLowerCase() == 'started'"><img class="table_icon" :src="stopIconSrc" alt=""
+                <i v-if="scope.row.state.toLowerCase() == 'started'"><img title="禁用" class="table_icon" :src="stopIconSrc" alt=""
                                                                           @click="changeUserState(scope.row)"/></i>
-                <i v-if="scope.row.state.toLowerCase() != 'started'"><img class="table_icon" :src="playIconSrc" alt=""
+                <i v-if="scope.row.state.toLowerCase() != 'started'"><img title="启用" class="table_icon" :src="playIconSrc" alt=""
                                                                           @click="changeUserState(scope.row)"/></i>
                 <!-- <a href="javascript:;" @click="fetchBuildReport(scope.row.buildno)">查看</a>-->
               </template>
